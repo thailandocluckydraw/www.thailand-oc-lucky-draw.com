@@ -52,7 +52,7 @@ class WebsiteController extends Controller
         $period = new DatePeriod($begin, $interval, $end);
         
         foreach ($period as $dt) {
-            $lotterynumber1 = rand(1000000000,9999999999);
+            $lotterynumber1 = rand(10,99)."".rand(10000000,99999999);
             $addLottery = new Lottery;
             $addLottery->lottery_number = $lotterynumber1;
             $addLottery->created_at = $dt->format("Y-m-d 12:55:00");
@@ -60,7 +60,7 @@ class WebsiteController extends Controller
             $addLottery->save();
 
             
-            $lotterynumber2 = rand(1000000000,9999999999);
+            $lotterynumber2 = rand(10,99)."".rand(10000000,99999999);
             $addLottery = new Lottery;
             $addLottery->lottery_number = $lotterynumber2;
             $addLottery->created_at = $dt->format("Y-m-d 17:55:00");
