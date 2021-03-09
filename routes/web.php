@@ -15,7 +15,7 @@ Route::get('/', 'WebsiteController@index')->name('/');
 Route::get('/lottery-results', 'WebsiteController@lotteryResults')->name('/lottery-results');
 // Route::get('/contact', 'WebsiteController@contactUs')->name('/contact');
 
-Route::get('/generatelottery', 'WebsiteController@generateLottery')->name('/generatelottery');
+// Route::get('/generatelottery', 'WebsiteController@generateLottery')->name('/generatelottery');
 
 Auth::routes();
 
