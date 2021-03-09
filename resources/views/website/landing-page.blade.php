@@ -65,7 +65,12 @@
                 <div class="row">
                     <div class="col-12 text-center">
                         <p class="text-red">No lottery results found</p>
-                    </div>
+                    </div> 
+                    
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                        <br /><br />
+                        <a class="s-menu" href="{{ route('/lottery-results') }}">View Old Results</a>
+                    </div> 
                 </div>
             @endif
         </div>
