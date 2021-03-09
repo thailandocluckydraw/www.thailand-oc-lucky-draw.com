@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lottery;
 use Carbon\Carbon;
+use DateTime;
+use DatePeriod;
+use DateInterval;
 
 class WebsiteController extends Controller
 {
@@ -38,5 +41,33 @@ class WebsiteController extends Controller
     public function contactUs()
     {
         return view('website.contact-page');
+    }
+
+    public function generateLottery()
+    {
+        $begin = new DateTime('2021-01-01');
+        $end = new DateTime('2021-03-10');
+
+        $interval = DateInterval::createFromDateString('1 day');
+        $period = new DatePeriod($begin, $interval, $end);
+        
+        foreach ($period as $dt) {
+            $rand = rand(1000000000,9999999999);
+
+            $addLottery = new Lottery;
+            $addLottery->lottery_number = $rand;
+            $addLottery->created_at = $dt->format("Y-m-d 12:55:00");
+            $addLottery->updated_at = $dt->format("Y-m-d 12:55:00");
+
+            $addLottery->save();
+
+            $addLottery = new Lottery;
+            $addLottery->lottery_number = $rand;
+            $addLottery->created_at = $dt->format("Y-m-d 17:55:00");
+            $addLottery->updated_at = $dt->format("Y-m-d 17:55:00");
+
+            $addLottery->save();
+        }
+        echo "success";
     }
 }
