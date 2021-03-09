@@ -52,20 +52,19 @@ class WebsiteController extends Controller
         $period = new DatePeriod($begin, $interval, $end);
         
         foreach ($period as $dt) {
-            $rand = rand(1000000000,9999999999);
-
+            $lotterynumber1 = rand(1000000000,9999999999);
             $addLottery = new Lottery;
-            $addLottery->lottery_number = $rand;
+            $addLottery->lottery_number = $lotterynumber1;
             $addLottery->created_at = $dt->format("Y-m-d 12:55:00");
             $addLottery->updated_at = $dt->format("Y-m-d 12:55:00");
-
             $addLottery->save();
 
+            
+            $lotterynumber2 = rand(1000000000,9999999999);
             $addLottery = new Lottery;
-            $addLottery->lottery_number = $rand;
+            $addLottery->lottery_number = $lotterynumber2;
             $addLottery->created_at = $dt->format("Y-m-d 17:55:00");
             $addLottery->updated_at = $dt->format("Y-m-d 17:55:00");
-
             $addLottery->save();
         }
         echo "success";

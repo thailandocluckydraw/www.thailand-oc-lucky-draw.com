@@ -22,13 +22,14 @@
                         <div class="deposite-table">
                             <table>
                                 <tr>
-                                    <th>Draw Date</th>
-                                    <th>Lottery Number</th>
+                                    <th>Draw Details</th>
                                 </tr>
                                 @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ date('M d, Y - h:i A', strtotime($item->created_at)) }}</td>
-                                        <td>THAI-{{ $item->lottery_number }}</td>
+                                        <td>
+                                            <p>{{ date('M d, Y - h:i A', strtotime($item->created_at)) }}</p>
+                                            <p class="text-primary"><b>THAI-{{ $item->lottery_number }}</b></p>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 
