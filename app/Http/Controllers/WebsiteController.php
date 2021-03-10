@@ -55,16 +55,16 @@ class WebsiteController extends Controller
             $lotterynumber1 = rand(10,99)."".rand(10000000,99999999);
             $addLottery = new Lottery;
             $addLottery->lottery_number = $lotterynumber1;
-            $addLottery->created_at = $dt->format("Y-m-d 12:55:00");
-            $addLottery->updated_at = $dt->format("Y-m-d 12:55:00");
+            $addLottery->created_at = $dt->format("Y-m-d 14:30:00");
+            $addLottery->updated_at = $dt->format("Y-m-d 14:30:00");
             $addLottery->save();
 
             
             $lotterynumber2 = rand(10,99)."".rand(10000000,99999999);
             $addLottery = new Lottery;
             $addLottery->lottery_number = $lotterynumber2;
-            $addLottery->created_at = $dt->format("Y-m-d 17:55:00");
-            $addLottery->updated_at = $dt->format("Y-m-d 17:55:00");
+            $addLottery->created_at = $dt->format("Y-m-d 20:00:00");
+            $addLottery->updated_at = $dt->format("Y-m-d 20:00:00");
             $addLottery->save();
         }
         echo "success";
