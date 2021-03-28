@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lottery;
+use App\Models\WeeklyLottery;
 use Carbon\Carbon;
 use DateTime;
 use DatePeriod;
@@ -19,7 +20,8 @@ class WebsiteController extends Controller
     {
         $today = Carbon::today();
         $data = Lottery::viewTodayLottery($today);
-        return view('website.landing-page')->with("data", $data);
+        $dataWeek = WeeklyLottery::viewTodayWeeklyLottery($today);
+        return view('website.landing-page')->with(["data" => $data, "dataWeek" => $dataWeek]);
     }
 
     
@@ -30,6 +32,12 @@ class WebsiteController extends Controller
     public function lotteryResults()
     {
         $data = Lottery::viewLottery();
+        return view('website.lottery-result-page')->with("data", $data);
+    }
+
+    public function lotteryResultsWeekly()
+    {
+        $data = WeeklyLottery::viewWeeklyLottery();
         return view('website.lottery-result-page')->with("data", $data);
     }
 

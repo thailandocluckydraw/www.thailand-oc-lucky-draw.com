@@ -77,6 +77,52 @@
     </div>
     <!-- End lottry result area -->
     
+    <!--Start lottry result area -->
+    <div class="payment-history-area bg-color fix area-padding" id="lottery-result">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-headline text-center">
+                        <h3>Thailand OC Lottery Results Weekly</h3>
+                        <p>The new draw lottery result is shown below. Wait for the result if no result is shown.</p>
+                    </div>
+                </div>
+            </div>
+            @if (count($dataWeek) > 0)
+                <div class="row">
+                    @foreach ($dataWeek as $items)
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                            <h4 class="text-red">
+                                <img src="{{ asset('website/img/icon/new.gif') }}">
+                                <span class="text-warning">Draw Date: {{ date('M d, Y - h:i A', strtotime($items->created_at)) }}</span>
+                                <span class="text-info">|</span>
+                                <span>Draw Number: THAI-{{ $items->lottery_number }} </span>
+                                <img src="{{ asset('website/img/icon/new.gif') }}">
+                            </h4>
+                        </div>
+                    @endforeach  
+                    
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                        <br /><br />
+                        <a class="s-menu" href="{{ route('/lottery-results-weekly') }}">View Old Results</a>
+                    </div>                      
+                </div>
+            @else
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="text-red">No lottery results found</p>
+                    </div> 
+                    
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                        <br /><br />
+                        <a class="s-menu" href="{{ route('/lottery-results-weekly') }}">View Old Results</a>
+                    </div> 
+                </div>
+            @endif
+        </div>
+    </div>
+    <!-- End lottry result area -->
+    
     <!-- Start About Area -->
     <div class="about-area about-area-3 fix area-padding">
         <div class="container">
